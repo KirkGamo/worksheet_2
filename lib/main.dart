@@ -50,7 +50,7 @@ class _HomeShellState extends State<HomeShell> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kirk Gamo'), // change to your name if desired
+        title: const Text('My Profile'), // change to your name if desired
         centerTitle: true,
         elevation: 2,
         backgroundColor: Colors.indigo,
@@ -103,7 +103,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                     child: const CircleAvatar(
                       radius: 52,
-                      backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=3'),
+                      backgroundImage: AssetImage('Gamo_profile.png'),
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -111,13 +111,13 @@ class ProfilePage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
-                        Text(
-                          'Kirk Gamo',
-                          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(height: 6),
-                        Text('Student • Mobile Developer', style: TextStyle(color: Colors.black54)),
-                      ],
+                              Text(
+                                'Kirk Gamo',
+                                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(height: 6),
+                              Text('Student • Mobile Developer', style: TextStyle(color: Colors.black54)),
+                            ],
                     ),
                   ),
                 ],
@@ -132,29 +132,29 @@ class ProfilePage extends StatelessWidget {
             elevation: 1,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             child: Column(
-              children: const [
-                ListTile(
+                children: const [
+                  ListTile(
                   leading: Icon(Icons.email, color: Colors.indigo),
                   title: Text('EMAIL', style: TextStyle(fontWeight: FontWeight.bold)),
-                  subtitle: Text('kirk.gamo@example.com'),
+                  subtitle: Text('gamo.kirkhenrich2005@gmail.com'),
                 ),
                 Divider(height: 1),
                 ListTile(
                   leading: Icon(Icons.home, color: Colors.indigo),
                   title: Text('ADDRESS', style: TextStyle(fontWeight: FontWeight.bold)),
-                  subtitle: Text('123 Learning St, City, Country'),
+                  subtitle: Text('San Julian Tapaz, Capiz'),
                 ),
                 Divider(height: 1),
                 ListTile(
                   leading: Icon(Icons.school, color: Colors.indigo),
                   title: Text('SCHOOL', style: TextStyle(fontWeight: FontWeight.bold)),
-                  subtitle: Text('Example University'),
+                  subtitle: Text('West Visayas State University - Main Campus'),
                 ),
                 Divider(height: 1),
                 ListTile(
                   leading: Icon(Icons.favorite, color: Colors.indigo),
                   title: Text('HOBBIES', style: TextStyle(fontWeight: FontWeight.bold)),
-                  subtitle: Text('Studying, Sleeping, Coding'),
+                  subtitle: Text('Studying, Sleeping, Coding, Reading, Running'),
                 ),
                 Divider(height: 1),
                 ListTile(
@@ -241,17 +241,17 @@ class ContactPage extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.email),
             title: Text('Email'),
-            subtitle: Text('kirk.gamo@example.com'),
+            subtitle: Text('gamo.kirkhenrich2005@gmail.com'),
           ),
           ListTile(
             leading: Icon(Icons.phone),
             title: Text('Phone'),
-            subtitle: Text('+1 234 567 890'),
+            subtitle: Text('09667752661'),
           ),
           ListTile(
             leading: Icon(Icons.link),
             title: Text('Website'),
-            subtitle: Text('https://example.com'),
+            subtitle: Text('https://gamo-portfolio.vercel.app'),
           ),
         ],
       ),
