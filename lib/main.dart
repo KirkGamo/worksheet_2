@@ -13,6 +13,11 @@ class MainApp extends StatelessWidget {
       title: 'Profile App',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
+        scaffoldBackgroundColor: Colors.white,
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          bodyMedium: TextStyle(fontSize: 14.0),
+        ),
       ),
       home: const HomeShell(),
     );
@@ -47,6 +52,8 @@ class _HomeShellState extends State<HomeShell> {
       appBar: AppBar(
         title: const Text('Kirk Gamo'), // change to your name if desired
         centerTitle: true,
+        elevation: 2,
+        backgroundColor: Colors.indigo,
       ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -81,83 +88,102 @@ class ProfilePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Profile section
-          Row(
-            children: [
-              const CircleAvatar(
-                radius: 48,
-                backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=3'),
-              ),
-              const SizedBox(width: 16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'Kirk Gamo',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          // Profile section with card
+          Card(
+            elevation: 2,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.indigo.shade100, width: 2),
+                    ),
+                    child: const CircleAvatar(
+                      radius: 52,
+                      backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=3'),
+                    ),
                   ),
-                  SizedBox(height: 4),
-                  Text('Student • Mobile Developer'),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Kirk Gamo',
+                          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 6),
+                        Text('Student • Mobile Developer', style: TextStyle(color: Colors.black54)),
+                      ],
+                    ),
+                  ),
                 ],
               ),
-            ],
+            ),
           ),
 
-          const SizedBox(height: 24),
+          const SizedBox(height: 18),
 
-          // Information section (using Table)
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Colors.grey.shade100,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Table(
-              columnWidths: const {
-                0: FixedColumnWidth(36),
-                1: FixedColumnWidth(120),
-                2: FlexColumnWidth(),
-              },
+          // Information section as ListTiles for better responsiveness
+          Card(
+            elevation: 1,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            child: Column(
               children: const [
-                TableRow(children: [
-                  Padding(padding: EdgeInsets.all(6), child: Icon(Icons.email)),
-                  Padding(padding: EdgeInsets.all(6), child: Text('EMAIL', style: TextStyle(fontWeight: FontWeight.bold))),
-                  Padding(padding: EdgeInsets.all(6), child: Text('kirk.gamo@example.com')),
-                ]),
-                TableRow(children: [
-                  Padding(padding: EdgeInsets.all(6), child: Icon(Icons.home)),
-                  Padding(padding: EdgeInsets.all(6), child: Text('ADDRESS', style: TextStyle(fontWeight: FontWeight.bold))),
-                  Padding(padding: EdgeInsets.all(6), child: Text('123 Learning St, City, Country')),
-                ]),
-                TableRow(children: [
-                  Padding(padding: EdgeInsets.all(6), child: Icon(Icons.school)),
-                  Padding(padding: EdgeInsets.all(6), child: Text('SCHOOL', style: TextStyle(fontWeight: FontWeight.bold))),
-                  Padding(padding: EdgeInsets.all(6), child: Text('Example University')),
-                ]),
-                TableRow(children: [
-                  Padding(padding: EdgeInsets.all(6), child: Icon(Icons.favorite)),
-                  Padding(padding: EdgeInsets.all(6), child: Text('HOBBIES', style: TextStyle(fontWeight: FontWeight.bold))),
-                  Padding(padding: EdgeInsets.all(6), child: Text('Studying, Sleeping, Coding')),
-                ]),
-                TableRow(children: [
-                  Padding(padding: EdgeInsets.all(6), child: Icon(Icons.info)),
-                  Padding(padding: EdgeInsets.all(6), child: Text('STATUS', style: TextStyle(fontWeight: FontWeight.bold))),
-                  Padding(padding: EdgeInsets.all(6), child: Text('Open to learning new technologies')),
-                ]),
+                ListTile(
+                  leading: Icon(Icons.email, color: Colors.indigo),
+                  title: Text('EMAIL', style: TextStyle(fontWeight: FontWeight.bold)),
+                  subtitle: Text('kirk.gamo@example.com'),
+                ),
+                Divider(height: 1),
+                ListTile(
+                  leading: Icon(Icons.home, color: Colors.indigo),
+                  title: Text('ADDRESS', style: TextStyle(fontWeight: FontWeight.bold)),
+                  subtitle: Text('123 Learning St, City, Country'),
+                ),
+                Divider(height: 1),
+                ListTile(
+                  leading: Icon(Icons.school, color: Colors.indigo),
+                  title: Text('SCHOOL', style: TextStyle(fontWeight: FontWeight.bold)),
+                  subtitle: Text('Example University'),
+                ),
+                Divider(height: 1),
+                ListTile(
+                  leading: Icon(Icons.favorite, color: Colors.indigo),
+                  title: Text('HOBBIES', style: TextStyle(fontWeight: FontWeight.bold)),
+                  subtitle: Text('Studying, Sleeping, Coding'),
+                ),
+                Divider(height: 1),
+                ListTile(
+                  leading: Icon(Icons.info, color: Colors.indigo),
+                  title: Text('STATUS', style: TextStyle(fontWeight: FontWeight.bold)),
+                  subtitle: Text('Open to learning new technologies'),
+                ),
               ],
             ),
           ),
 
-          const SizedBox(height: 24),
+          const SizedBox(height: 18),
 
           // Biography section
           const Text('My Biography', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          const Text(
-            'I am a dedicated student and budding mobile developer who enjoys building small, practical applications. ' 
-            'I spend my time studying computer science topics, experimenting with Flutter, and balancing life with restful sleep and hobbies. ' 
-            'I am always eager to learn, collaborate, and grow my skills in software development.',
-            style: TextStyle(fontSize: 14),
+          Card(
+            elevation: 0,
+            color: Colors.indigoAccent,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: const Text(
+                'I am a dedicated student and budding mobile developer who enjoys building small, practical applications. ' 
+                'I spend my time studying computer science topics, experimenting with Flutter, and balancing life with restful sleep and hobbies. ' 
+                'I am always eager to learn, collaborate, and grow my skills in software development.',
+                style: TextStyle(fontSize: 14, color: Colors.white),
+              ),
+            ),
           ),
         ],
       ),
