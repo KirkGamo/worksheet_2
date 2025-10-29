@@ -1,3 +1,5 @@
+<!-- DRAFT PR: review this copilot instructions file before merging -->
+
 ## Repository snapshot
 
 - Small Flutter app (multi-platform) with entrypoint at `lib/main.dart`.
