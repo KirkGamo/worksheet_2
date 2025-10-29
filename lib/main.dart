@@ -101,9 +101,9 @@ class ProfilePage extends StatelessWidget {
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.indigo.shade100, width: 2),
                     ),
-                    child: const CircleAvatar(
+                      child: const CircleAvatar(
                       radius: 52,
-                      backgroundImage: AssetImage('Gamo_profile.png'),
+                      backgroundImage: AssetImage('assets/images/Gamo_profile.png'),
                     ),
                   ),
                   const SizedBox(width: 16),
